@@ -45,4 +45,19 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    @media screen and (max-width: 720px) {
+        .content {
+            width: 100%;
+
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            transform: unset;
+
+            border-radius: 0;
+        }
+    }
 </style>

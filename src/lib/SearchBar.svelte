@@ -27,6 +27,14 @@
         border-radius: 10px;
     }
 
+    @media screen and (max-width: 720px) {
+        .search-bar {
+            position: static;
+            flex: 1;
+            margin-right: 0.6rem;
+        }
+    }
+
     input {
         background-color: transparent;
         border: none;

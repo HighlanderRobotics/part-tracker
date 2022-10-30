@@ -31,6 +31,12 @@
         padding: 0.75rem;
     }
 
+    @media screen and (max-width: 720px) {
+        #logo {
+            display: none;
+        }
+    }
+
     #logo {
         width: 71px;
         height: 71px;
