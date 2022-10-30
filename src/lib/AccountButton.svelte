@@ -24,6 +24,12 @@
     align-items: center;
   }
 
+  @media screen and (max-width: 720px) {
+    img {
+      display: none;
+    }
+  }
+
   img {
     height: 3.5rem;
     border-radius: 50%;

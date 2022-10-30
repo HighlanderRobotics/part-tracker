@@ -71,21 +71,12 @@
 
         height: 9.625rem;
         width: 700px;
+        overflow: hidden;
 
         /* background-color: #eee; */
         border-radius: 15px;
 
         transition: background-color 0.3s;
-    }
-
-    @media screen and (max-width: 720px) {
-        .part {
-            width: calc(100vw - 1rem);
-        }
-    }
-
-    .controls {
-        margin-top: 2rem;
     }
 
     .image {
@@ -111,6 +102,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+        height: 100%
     }
 
     .left {
@@ -125,7 +117,7 @@
 
     .warnings {
         width: max-content;
-        padding: 1.5rem;
+        padding: 1.5rem 1.5rem 1.5rem 0;
         margin: 0;
 
         list-style: none;
@@ -161,5 +153,20 @@
         display: flex;
         align-items: center;
         gap: 0.125rem;
+    }
+
+    @media screen and (max-width: 720px) {
+        .part {
+            width: calc(100vw - 1rem);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+        }
+
+        .warning {
+            font-size: 1rem;
+        }
     }
 </style>
