@@ -20,14 +20,16 @@ const db = getDatabase(app);
 
 const partsRef = ref(db, "parts");
 
-export const parts = writable(get(partsRef));
+export const parts = writable({});
 
-onValue(partsRef, (snapshot) => {
-  parts.set(snapshot.val());
-});
+let eventCreated = false;
 
-onAuthStateChanged(getAuth(), (e) => {
-  get(partsRef).then((snapshot) => {
-    parts.set(snapshot.val());
-  })
+onAuthStateChanged(getAuth(), (newUser) => {
+  if (newUser && !eventCreated) {
+    onValue(partsRef, (snapshot) => {
+      parts.set(snapshot.val());
+    });
+
+    eventCreated = true;
+  }
 })
