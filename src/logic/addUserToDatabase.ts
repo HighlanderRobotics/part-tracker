@@ -1,15 +1,12 @@
-import { getAuth } from "firebase/auth";
+import { getAuth, type User } from "firebase/auth";
 import { get, getDatabase, ref, set } from "firebase/database";
 
-async function addUserToDatabase() {
+async function addUserToDatabase(user: User) {
     const auth = getAuth();
     const db = getDatabase();
 
-    const user = auth.currentUser;
-
     // Check if it's already in the database
     if (await doesUserExist()) {
-        console.log("User already exists");
         return;
     };
 

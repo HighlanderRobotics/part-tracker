@@ -1,7 +1,5 @@
 <script lang="ts">
   import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-  // @ts-ignore
-  import { addUserToDatabase } from "/src/logic/addUserToDatabase.ts";
 
   function signIn() {
     const provider = new GoogleAuthProvider();
@@ -9,10 +7,7 @@
 
     const auth = getAuth();
 
-    signInWithPopup(auth, provider)
-      .then(() => {
-        addUserToDatabase();
-      })
+    signInWithPopup(auth, provider);
   }
 </script>
 

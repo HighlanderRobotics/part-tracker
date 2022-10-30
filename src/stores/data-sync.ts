@@ -2,6 +2,7 @@ import { writable } from "svelte/store";
 
 import { initializeApp } from "firebase/app";
 import { get, getDatabase, onValue, ref } from "firebase/database";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -22,5 +23,11 @@ const partsRef = ref(db, "parts");
 export const parts = writable(get(partsRef));
 
 onValue(partsRef, (snapshot) => {
-    parts.set(snapshot.val());
+  parts.set(snapshot.val());
 });
+
+onAuthStateChanged(getAuth(), (e) => {
+  get(partsRef).then((snapshot) => {
+    parts.set(snapshot.val());
+  })
+})
