@@ -70,12 +70,18 @@
         align-items: center;
 
         height: 9.625rem;
-        width: 50vw;
+        width: 700px;
 
         /* background-color: #eee; */
         border-radius: 15px;
 
-        transition: 0.3s;
+        transition: background-color 0.3s;
+    }
+
+    @media screen and (max-width: 720px) {
+        .part {
+            width: calc(100vw - 1rem);
+        }
     }
 
     .controls {
