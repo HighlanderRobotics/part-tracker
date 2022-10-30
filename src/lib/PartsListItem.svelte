@@ -167,6 +167,8 @@
 
         .warning {
             font-size: 1rem;
+
+            width: min-content;
         }
     }
 </style>
