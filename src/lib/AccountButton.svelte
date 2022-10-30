@@ -5,7 +5,7 @@
 </script>
 
 <button class="account-button" on:click={() => signOut(getAuth())}>
-  <img src={$userStore.photoURL} alt="">
+  <img src={$userStore.photoURL} alt="Profile">
   <div class="text">
     <span class="displayname">
       {$userStore.displayName}
