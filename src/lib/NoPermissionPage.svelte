@@ -11,8 +11,8 @@
 
     <CenteredBlockPage>
         <h1>No permission</h1>
-        <p>You are not authorized to access this page.</p>
-        <p>Signed in as {$userStore.displayName} ({$userStore.email})</p>
+        <p>You are not yet authorized to access this page.</p>
+        <p>Awaiting authorization for {$userStore.displayName} ({$userStore.email})</p>
         <button data-variant="primary" on:click={() => auth.signOut()}>Sign out</button>
     </CenteredBlockPage>
 
