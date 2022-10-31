@@ -1,10 +1,13 @@
 <script lang="ts">
-  import { getAuth, signOut } from "firebase/auth";
+  import AccountDialog from "./AccountDialog.svelte";
+  import Dialog from "./reusable/Dialog.svelte";
   // @ts-ignore
   import { userStore } from "/src/stores/auth";
+
+  let dialogOpen = false;
 </script>
 
-<button class="account-button" on:click={() => signOut(getAuth())}>
+<button class="account-button" on:click={() => dialogOpen = true}>
   <img src={$userStore.photoURL} alt="Profile">
   <div class="text">
     <span class="displayname">
@@ -15,6 +18,10 @@
     </span>
   </div>
 </button>
+
+<Dialog bind:open={dialogOpen} defaultPadding={false}>
+  <AccountDialog close={() => dialogOpen = false} />
+</Dialog>
 
 <style>
   .account-button {

@@ -4,6 +4,7 @@
 
     export let open: boolean;
     export let allowClose = true;
+    export let defaultPadding = true;
 </script>
 
 {#if (open)}
@@ -14,7 +15,11 @@
 
         transition:fade={{ duration: 200 }}
     />
-    <div class="content" transition:fly={{ y: 200, duration: 200 }}>
+    <div
+        class="content"
+        transition:fly={{ y: 200, duration: 200 }}
+        style:padding={defaultPadding ? "1rem" : "0"}
+    >
         <slot />
     </div>
 {/if}
@@ -44,6 +49,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        overflow: hidden;
     }
 
     @media screen and (max-width: 720px) {
