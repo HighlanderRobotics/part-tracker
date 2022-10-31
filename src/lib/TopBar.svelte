@@ -1,11 +1,12 @@
 <script lang="ts">
     import AccountButton from "./AccountButton.svelte";
     import SearchBar from "./SearchBar.svelte";
+    import logo from "/src/assets/logo.jpg";
 </script>
 
 <nav>
     <!-- Logo -->
-    <img id="logo" src="/src/assets/logo.jpg" alt="8033 logo">
+    <img id="logo" src={logo} alt="8033 logo">
     <!-- Search bar -->
     <SearchBar />
 
