@@ -49,9 +49,4 @@
   .displayname {
     font-size: 1.1rem;
   }
-
-  .logout-label {
-    color: #777;
-    font-size: 0.9rem;
-  }
 </style>
