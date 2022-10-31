@@ -13,9 +13,6 @@
     <span class="displayname">
       {$userStore.displayName}
     </span>
-    <span class="logout-label">
-      Sign out
-    </span>
   </div>
 </button>
 
