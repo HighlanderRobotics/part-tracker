@@ -8,10 +8,14 @@
     import { fade } from "svelte/transition";
     import Dialog from "./reusable/Dialog.svelte";
     import EditPartDialog from "./EditPartDialog.svelte";
+    // @ts-ignore
+    import estimateLifespan from "/src/logic/estimateLifespan.ts";
 
     const db = getDatabase(getApp())
 
     export let part: Part;
+
+    $: maxMatches = estimateLifespan(part);
 
     let editDialogOpen = false;
 
@@ -19,14 +23,20 @@
         set(ref(db, `parts/${part.id}/severeDamage`), !part.severeDamage);
     }
 
-    function markReplaced() {
-        update(ref(db, `parts/${part.id}`), {"severeDamage": false, "matchCount": 0});
+    function markReplaced(recordReplacement: boolean) {
+        let newHistoricalLifespan = part.historicalLifespan;
+
+        if (recordReplacement) {
+            newHistoricalLifespan[(Object.keys(part.historicalLifespan).length - 1).toString()] = part.matchCount;
+        }
+
+        update(ref(db, `parts/${part.id}`), {"severeDamage": false, "matchCount": 0, "historicalLifespan": newHistoricalLifespan});
     }
 </script>
 
 <div 
     class="part"
-    style:background-color="hsl({part.severeDamage || part.matchCount > part.maxMatches ? 0 : -120*part.matchCount/part.maxMatches + 120}, 70%, 70%)"
+    style:background-color="hsl({part.severeDamage || part.matchCount > maxMatches ? 0 : -120*part.matchCount/maxMatches + 120}, 70%, 70%)"
 >
     <div class="image" />
     <div class="details">
@@ -34,7 +44,7 @@
             <div class="text">
                 <h3 class="title">{part.name}</h3>
                 <ul class="data">
-                    <li>{part.matchCount}/{part.maxMatches} Matches</li>
+                    <li>{part.matchCount}/{maxMatches} Matches</li>
                 </ul>
             </div>
             <div class="controls">
@@ -44,8 +54,11 @@
                 <IconButton on:click={toggleSevereDamage}>
                     <Icon name="heart_broken" size={1.5} style={part.severeDamage ? "filled" : "outlined"} />
                 </IconButton>
-                <IconButton on:click={markReplaced}>
+                <IconButton on:click={() => markReplaced(false)}>
                     <Icon name="published_with_changes" size={1.5} />
+                </IconButton>
+                <IconButton on:click={() => markReplaced(true)}>
+                    <Icon name="clear" size={1.5} />
                 </IconButton>
             </div>
         </div>
@@ -53,7 +66,7 @@
             {#if part.severeDamage}
                 <li class="warning">Severe Damage</li>
             {/if}
-            {#if part.matchCount > part.maxMatches}
+            {#if part.matchCount > maxMatches}
                 <li class="warning">Beyond Expected Lifespan</li>
             {/if}
         </ul>

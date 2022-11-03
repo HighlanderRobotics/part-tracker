@@ -24,7 +24,7 @@
         const part: Part = {
             "name": partName,
             "severeDamage": false,
-            "maxMatches": maxMatches,
+            "historicalLifespan": {"originalEstimate": maxMatches},
             "matchCount": 0,
         }
 

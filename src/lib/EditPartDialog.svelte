@@ -20,7 +20,6 @@
 
         if (newPart.name.length <= 0) errors = [...errors, "Part Name is required"];
         if (newPart.matchCount < 0 || newPart.matchCount === null) errors = [...errors, "Match count  must be a positive number"];
-        if (newPart.maxMatches <= 0) errors = [...errors, "Maximum matches must be a number grater than 0"];
 
         if (errors.length > 0) return;
 
@@ -31,7 +30,6 @@
         update(ref(db, `parts/${part.id}`), {
             "name": newPart.name,
             "matchCount": newPart.matchCount,
-            "maxMatches": newPart.maxMatches,
         });
 
         close();
@@ -62,15 +60,6 @@
         id="max-matches-input"
         placeholder="5"
         bind:value={newPart.matchCount}
-    />
-</div>
-<div class="field">
-    <label for="max-matches-input">Maximum Matches</label><br />
-    <input
-        type="number"
-        id="max-matches-input"
-        placeholder="10"
-        bind:value={newPart.maxMatches}
     />
 </div>
 

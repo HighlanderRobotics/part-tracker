@@ -1,7 +1,10 @@
 export type Part = {
     name: string;
     severeDamage: boolean;
-    maxMatches: number;
     matchCount: number;
+    historicalLifespan: {
+        originalEstimate: number;
+        [key: string]: number;
+    };
     id?: string;
 }
