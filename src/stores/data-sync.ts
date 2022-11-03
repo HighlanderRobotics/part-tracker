@@ -27,7 +27,7 @@ let eventCreated = false;
 onAuthStateChanged(getAuth(), (newUser) => {
   if (newUser && !eventCreated) {
     onValue(partsRef, (snapshot) => {
-      parts.set(snapshot.val());
+      parts.set(snapshot.val() || {});
     });
 
     eventCreated = true;
