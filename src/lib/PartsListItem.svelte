@@ -49,16 +49,16 @@
             </div>
             <div class="controls">
                 <IconButton on:click={() => editDialogOpen = true}>
-                    <Icon name="edit" size={1.5} />
+                    <Icon name="edit" size={2} />
                 </IconButton>
                 <IconButton on:click={toggleSevereDamage}>
-                    <Icon name="heart_broken" size={1.5} style={part.severeDamage ? "filled" : "outlined"} />
+                    <Icon name="heart_broken" size={2} style={part.severeDamage ? "filled" : "outlined"} />
                 </IconButton>
                 <IconButton on:click={() => markReplaced(false)}>
-                    <Icon name="published_with_changes" size={1.5} />
+                    <Icon name="published_with_changes" size={2} />
                 </IconButton>
                 <IconButton on:click={() => markReplaced(true)}>
-                    <Icon name="clear" size={1.5} />
+                    <Icon name="clear" size={2} />
                 </IconButton>
             </div>
         </div>
@@ -128,6 +128,11 @@
         padding: 0.78125rem 0 0.78125rem 0;
     }
 
+    .controls {
+        display: flex;
+        gap: 1rem;
+    }
+
     .warnings {
         width: max-content;
         padding: 1.5rem 1.5rem 1.5rem 0;
@@ -179,9 +184,7 @@
         }
 
         .warning {
-            font-size: 1rem;
-
-            width: min-content;
+            display: none;
         }
     }
 </style>
