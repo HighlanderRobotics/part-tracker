@@ -1,4 +1,8 @@
-<button on:click>
+<script lang="ts">
+    export let tooltip: string = null;
+</script>
+
+<button on:click title={tooltip}>
     <slot />
 </button>
 

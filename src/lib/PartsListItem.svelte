@@ -48,16 +48,16 @@
                 </ul>
             </div>
             <div class="controls">
-                <IconButton on:click={() => editDialogOpen = true}>
+                <IconButton on:click={() => editDialogOpen = true} tooltip="Edit part">
                     <Icon name="edit" size={2} />
                 </IconButton>
-                <IconButton on:click={toggleSevereDamage}>
+                <IconButton on:click={toggleSevereDamage} tooltip="Toggle marked as severe damage">
                     <Icon name="heart_broken" size={2} style={part.severeDamage ? "filled" : "outlined"} />
                 </IconButton>
-                <IconButton on:click={() => markReplaced(false)}>
+                <IconButton on:click={() => markReplaced(false)} tooltip="Replace, not because broken/damaged">
                     <Icon name="published_with_changes" size={2} />
                 </IconButton>
-                <IconButton on:click={() => markReplaced(true)}>
+                <IconButton on:click={() => markReplaced(true)} tooltip="Replace because broken/damaged">
                     <Icon name="clear" size={2} />
                 </IconButton>
             </div>
