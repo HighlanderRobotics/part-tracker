@@ -104,7 +104,7 @@
     }
     
     .title {
-        font-family: 'Inter';
+        font-family: 'Heebo';
         font-style: normal;
         font-weight: 600;
         font-size: 30px;
@@ -162,7 +162,7 @@
     }
 
     .data li {
-        font-family: 'Inter';
+        font-family: 'Heebo';
         font-style: normal;
         font-weight: 400;
         font-size: 15px;

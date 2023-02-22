@@ -4,7 +4,7 @@
     import { searchTextStore } from "/src/stores/searchText";
 </script>
 <div class="search-bar">
-    <Icon name="search" size={1.875} color="#ACACAC" />
+    <Icon name="search" size={1.875} color="#777" />
     <input type="text" placeholder="Search for parts" bind:value={$searchTextStore} />
 </div>
 
@@ -23,7 +23,7 @@
         width: var(--width);
         height: 60px;
 
-        background: #ECECEC;
+        background: #dbdbdb;
         border-radius: 10px;
     }
 
@@ -41,7 +41,7 @@
         outline: none;
         width: 100%;
 
-        font-family: 'Inter';
+        font-family: 'Heebo';
         font-style: normal;
         font-weight: 400;
         font-size: 1.25rem;
@@ -49,6 +49,6 @@
     }
 
     input::placeholder {
-        color: #ACACAC;
+        color: #777;
     }
 </style>

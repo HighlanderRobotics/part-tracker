@@ -11,7 +11,7 @@
     align-items: center;
     height: 100vh;
 
-    background-color: #520288;
+    background-color: #350868;
   }
 
   .center {

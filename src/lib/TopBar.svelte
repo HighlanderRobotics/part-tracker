@@ -1,7 +1,7 @@
 <script lang="ts">
     import AccountButton from "./AccountButton.svelte";
     import SearchBar from "./SearchBar.svelte";
-    import logo from "/src/assets/logo.jpg";
+    import logo from "/src/assets/logo.png";
 </script>
 
 <nav>

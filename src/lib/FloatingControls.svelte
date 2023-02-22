@@ -31,11 +31,11 @@
 </script>
 
 <div class="floating-controls">
-    <button class="control" on:click={() => newPartDialogOpen = true}>
+    <button class="button control" on:click={() => newPartDialogOpen = true}>
         <Icon name="add" size={1.5} />
         <span>Add Part</span>
     </button>
-    <button class="control" on:click={incrementMatch}>
+    <button class="button control" on:click={incrementMatch}>
         <Icon name="emoji_events" size={1.5} />
         <span>Increment Match</span>
     </button>
@@ -55,12 +55,10 @@
     .control {
         display: flex;
         align-items: center;
-        background-color: #f2f2f2;
-        border: 1px solid #bbb;
-        border-radius: 5em;
-        padding: 0.3rem 0.6rem;
-        cursor: pointer;
         margin: 0.5rem;
+
+        padding-left: 1ch;
+        padding-right: 1ch;
     }
 
     .control span {

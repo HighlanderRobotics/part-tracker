@@ -83,7 +83,7 @@ select {
 }
 
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Heebo', sans-serif;
 }
 
 /* Buttons */
@@ -93,23 +93,23 @@ button {
   border-radius: 0.3em;
   padding: 0.3em 1em;
   cursor: pointer;
-  background-color: #e6e6e6;
+  background-color: #dbdbdb;
   color: #000;
 
   transition: 0.3s;
 }
 
 button:hover {
-  background-color: #ddd;
+  background-color: #ccc;
 }
 
 button[data-variant=primary] {
-  background-color: #520288;
+  background-color: #350868;
   color: #fff;
 }
 
 button[data-variant=primary]:hover {
-  background-color: #3d0065;
+  background-color: #1e142a;
 }
 
 button[data-variant=destructive] {
